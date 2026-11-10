@@ -30,6 +30,10 @@ Troque links, nome de usuário e redes sociais em `src/data/links.js`.
 |---|---|
 | ![Desktop claro](docs/prints/desktop-light.jpeg) | ![Desktop escuro](docs/prints/desktop-dark.jpeg) |
 
+| Mobile — Claro | Mobile — Escuro |
+|---|---|
+| ![Mobile claro](docs/prints/mobile-light.png) | ![Mobile escuro](docs/prints/mobile-dark.png) |
+
 ## Documentação
 
 - [`AGENTS.md`](AGENTS.md): instruções para o agente de IA
