@@ -28,7 +28,7 @@ Troque links, nome de usuário e redes sociais em `src/data/links.js`.
 
 | Desktop — Claro | Desktop — Escuro |
 |---|---|
-| ![Desktop claro](docs/prints/desktop-light.jpeg) | ![Desktop escuro](docs/prints/desktop-dark.jpeg) |
+| ![Desktop claro](docs/prints/desktop-light.png) | ![Desktop escuro](docs/prints/desktop-dark.png) |
 
 | Mobile — Claro | Mobile — Escuro |
 |---|---|
