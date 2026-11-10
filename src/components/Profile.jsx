@@ -1,5 +1,5 @@
-import avatarLight from '../assets/avatar-light.png'
-import avatarDark from '../assets/avatar-dark.png'
+import avatarLight from '../assets/avatar-light.jpg'
+import avatarDark from '../assets/avatar-dark.jpg'
 
 export default function Profile({ username, theme }) {
   const avatar = theme === 'dark' ? avatarDark : avatarLight

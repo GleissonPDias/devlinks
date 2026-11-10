@@ -98,6 +98,9 @@ body {
   display: block;
   width: 112px;
   height: 112px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--stroke);
 }
 
 .profile__username {
