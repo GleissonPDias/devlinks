@@ -1,111 +1,241 @@
+/* ===== Tokens — Style Guide do Figma ===== */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --container-width: 588px;
+  --page-padding-top: 56px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
+  font-family: 'Inter', system-ui, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+[data-theme='light'] {
+  color-scheme: light;
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+  --text: #000000;
+  --stroke: rgba(0, 0, 0, 0.5);
+  --stroke-strong: #000000;
+  --surface: rgba(0, 0, 0, 0.05);
+  --surface-hover: rgba(0, 0, 0, 0.02);
+  --highlight: rgba(0, 0, 0, 0.1);
+  --handle-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --page-fallback: #ffffff;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --text: #ffffff;
+  --stroke: rgba(255, 255, 255, 0.5);
+  --stroke-strong: #ffffff;
+  --surface: rgba(255, 255, 255, 0.1);
+  --surface-hover: rgba(255, 255, 255, 0.05);
+  --highlight: rgba(255, 255, 255, 0.2);
+  --handle-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --page-fallback: #000000;
+}
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  min-height: 100svh;
+  color: var(--text);
+  background-color: var(--page-fallback);
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
+/* ===== Fundo (assets do Figma, com fallback por tema e tela) ===== */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url('./assets/bg-mobile-light.png');
+  background-size: cover;
+  background-position: center;
+}
+
+[data-theme='dark'] .background {
+  background-image: url('./assets/bg-mobile-dark.png');
+}
+
+@media (min-width: 768px) {
+  .background {
+    background-image: url('./assets/bg-desktop-light.png');
+  }
+
+  [data-theme='dark'] .background {
+    background-image: url('./assets/bg-desktop-dark.png');
+  }
+}
+
+/* ===== Container ===== */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
   min-height: 100svh;
+  margin: 0 auto;
+  padding-top: var(--page-padding-top);
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+  align-items: center;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+/* ===== Profile ===== */
+.profile {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+.profile__avatar {
+  display: block;
+  width: 112px;
+  height: 112px;
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
+
+.profile__username {
   margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+/* ===== ThemeToggle (Switch) ===== */
+.theme-toggle {
+  position: relative;
+  width: 64px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.theme-toggle__track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 24px;
+  border-radius: 9999px;
+  background: var(--surface);
+  border: 1px solid var(--stroke);
+  backdrop-filter: blur(4px);
+}
+
+.theme-toggle__handle {
+  position: absolute;
+  top: 4px;
+  left: 32px; /* light: handle à direita */
+  display: flex;
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow: var(--handle-shadow);
+  transition: left 0.2s ease, box-shadow 0.15s ease;
+}
+
+[data-theme='dark'] .theme-toggle__handle {
+  left: 0; /* dark: handle à esquerda */
+}
+
+.theme-toggle:hover .theme-toggle__handle {
+  box-shadow: var(--handle-shadow), 0 0 0 8px var(--highlight);
+}
+
+.theme-toggle:focus-visible,
+.link-button:focus-visible,
+.social__link:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+/* ===== Links ===== */
+.links {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 23px; /* 16/24 do Figma compensando a borda de 1px */
+  border: 1px solid var(--stroke);
+  border-radius: 8px;
+  background: var(--surface);
+  backdrop-filter: blur(4px);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.link-button:hover {
+  background: var(--surface-hover);
+  border-color: var(--stroke-strong);
+  /* borda de 1.5px no hover (como no Figma), sem alterar o tamanho */
+  box-shadow: inset 0 0 0 0.5px var(--stroke-strong);
+}
+
+/* ===== Social links ===== */
+.social {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.social__list {
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social__link {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.15s ease;
+}
+
+.social__link:hover {
+  background-color: var(--highlight);
+}
+
+.social__link img {
+  display: block;
+}
+
+/* ===== Footer ===== */
+.footer {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
 }
