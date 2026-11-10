@@ -40,7 +40,7 @@ export const socials = [
   {
     id: 'github',
     label: 'GitHub',
-    href: 'https://github.com/',
+    href: 'https://github.com/GleissonPDias',
     iconLight: githubLight,
     iconDark: githubDark,
   },
