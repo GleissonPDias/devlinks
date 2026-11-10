@@ -17,22 +17,22 @@ export const links = [
   {
     id: 'curso',
     label: 'Inscreva-se no meu Curso',
-    href: 'https://www.alura.com.br/',
+    href: 'https://github.com/GleissonPDias',
   },
   {
     id: 'ebook',
     label: 'Baixe meu e-book',
-    href: 'https://www.alura.com.br/',
+    href: 'https://github.com/GleissonPDias',
   },
   {
     id: 'portfolio',
     label: 'Veja meu portfólio',
-    href: 'https://www.alura.com.br/',
+    href: 'https://github.com/GleissonPDias',
   },
   {
     id: 'conheca',
     label: 'Conheça meu curso',
-    href: 'https://www.alura.com.br/',
+    href: 'https://github.com/GleissonPDias',
   },
 ]
 
