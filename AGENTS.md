@@ -18,7 +18,7 @@ Antes de codificar, observe no Figma a imagem de perfil, `@usuário`, seletor de
 ## Tecnologias
 
 - **React** + **Vite**
-- **CSS comum** ou **Tailwind CSS** (manter o que já estiver configurado no projeto; não trocar de abordagem sem necessidade)
+- **Tailwind CSS v4** (via `@tailwindcss/vite`) + variáveis CSS para os temas
 - **localStorage** para persistir o tema
 - HTML semântico e acessível
 

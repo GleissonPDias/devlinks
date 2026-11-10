@@ -16,7 +16,7 @@ Abra `http://localhost:5173/`. Para gerar a versão de produção: `npm run buil
 ## Tecnologias
 
 - React 19 + Vite
-- CSS puro, com variáveis para os temas claro e escuro
+- Tailwind CSS v4 (via `@tailwindcss/vite`) para estilização, com variáveis CSS para os temas claro e escuro
 - localStorage para salvar o tema
 - Fonte Inter (Google Fonts)
 

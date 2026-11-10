@@ -25,12 +25,12 @@ function App() {
     <>
       <div className="background" aria-hidden="true" />
 
-      <main className="container">
+      <main className="w-full max-w-[588px] min-h-svh mx-auto pt-14 flex flex-col items-center">
         <Profile username={profile.username} theme={theme} />
 
         <ThemeToggle theme={theme} onToggle={handleToggleTheme} />
 
-        <nav className="links" aria-label="Links">
+        <nav className="w-full p-6 flex flex-col gap-4" aria-label="Links">
           {links.map((link) => (
             <LinkButton key={link.id} label={link.label} href={link.href} />
           ))}
@@ -38,7 +38,9 @@ function App() {
 
         <SocialLinks items={socials} theme={theme} />
 
-        <footer className="footer">Feito com ♥ por Gleisson</footer>
+        <footer className="w-full p-6 flex items-center justify-center text-sm leading-6 font-normal text-[var(--text)]">
+          Feito com ♥ por Gleisson
+        </footer>
       </main>
     </>
   )

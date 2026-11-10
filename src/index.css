@@ -1,13 +1,16 @@
+@import "tailwindcss";
+
+/* Modo escuro controlado por data-theme (alternado via JS + localStorage) */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
 /* ===== Tokens — Style Guide do Figma ===== */
 :root {
   --container-width: 588px;
   --page-padding-top: 56px;
-
-  font-family: 'Inter', system-ui, sans-serif;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 [data-theme='light'] {
@@ -46,6 +49,7 @@ body {
   min-height: 100svh;
   color: var(--text);
   background-color: var(--page-fallback);
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 /* ===== Fundo (assets do Figma, com fallback por tema e tela) ===== */
@@ -70,176 +74,4 @@ body {
   [data-theme='dark'] .background {
     background-image: url('./assets/bg-desktop-dark.png');
   }
-}
-
-/* ===== Container ===== */
-.container {
-  width: 100%;
-  max-width: var(--container-width);
-  min-height: 100svh;
-  margin: 0 auto;
-  padding-top: var(--page-padding-top);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* ===== Profile ===== */
-.profile {
-  width: 100%;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.profile__avatar {
-  display: block;
-  width: 112px;
-  height: 112px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 1px solid var(--stroke);
-}
-
-.profile__username {
-  margin: 0;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-}
-
-/* ===== ThemeToggle (Switch) ===== */
-.theme-toggle {
-  position: relative;
-  width: 64px;
-  height: 40px;
-  padding: 0;
-  border: none;
-  background: transparent;
-  border-radius: 999px;
-  cursor: pointer;
-  backdrop-filter: blur(2px);
-}
-
-.theme-toggle__track {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 64px;
-  height: 24px;
-  border-radius: 9999px;
-  background: var(--surface);
-  border: 1px solid var(--stroke);
-  backdrop-filter: blur(4px);
-}
-
-.theme-toggle__handle {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 32px; /* light: handle à direita */
-  display: flex;
-  width: 32px;
-  height: 32px;
-  padding: 8px;
-  border-radius: 9999px;
-  background: #ffffff;
-  box-shadow: var(--handle-shadow);
-  transition: left 0.2s ease, box-shadow 0.15s ease;
-}
-
-[data-theme='dark'] .theme-toggle__handle {
-  left: 0; /* dark: handle à esquerda */
-}
-
-.theme-toggle:hover .theme-toggle__handle {
-  box-shadow: var(--handle-shadow), 0 0 0 8px var(--highlight);
-}
-
-.theme-toggle:focus-visible,
-.link-button:focus-visible,
-.social__link:focus-visible {
-  outline: 2px solid var(--text);
-  outline-offset: 2px;
-}
-
-/* ===== Links ===== */
-.links {
-  width: 100%;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.link-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 23px; /* 16/24 do Figma compensando a borda de 1px */
-  border: 1px solid var(--stroke);
-  border-radius: 8px;
-  background: var(--surface);
-  backdrop-filter: blur(4px);
-  color: var(--text);
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 500;
-  text-align: center;
-  text-decoration: none;
-  transition: background 0.15s ease, border-color 0.15s ease;
-}
-
-.link-button:hover {
-  background: var(--surface-hover);
-  border-color: var(--stroke-strong);
-  /* borda de 1.5px no hover (como no Figma), sem alterar o tamanho */
-  box-shadow: inset 0 0 0 0.5px var(--stroke-strong);
-}
-
-/* ===== Social links ===== */
-.social {
-  width: 100%;
-  padding: 24px;
-  display: flex;
-  justify-content: center;
-}
-
-.social__list {
-  display: flex;
-  gap: 16px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.social__link {
-  display: block;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: background-color 0.15s ease;
-}
-
-.social__link:hover {
-  background-color: var(--highlight);
-}
-
-.social__link img {
-  display: block;
-}
-
-/* ===== Footer ===== */
-.footer {
-  width: 100%;
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  line-height: 24px;
-  font-weight: 400;
 }
