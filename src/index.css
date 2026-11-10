@@ -135,7 +135,8 @@ body {
 
 .theme-toggle__handle {
   position: absolute;
-  top: 4px;
+  top: 50%;
+  transform: translateY(-50%);
   left: 32px; /* light: handle à direita */
   display: flex;
   width: 32px;

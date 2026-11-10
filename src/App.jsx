@@ -38,7 +38,7 @@ function App() {
 
         <SocialLinks items={socials} theme={theme} />
 
-        <footer className="footer">Feito com ♥ pela/por</footer>
+        <footer className="footer">Feito com ♥ por Gleisson</footer>
       </main>
     </>
   )
