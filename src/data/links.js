@@ -10,7 +10,7 @@ import linkedinLight from '../assets/social-linkedin-light.svg'
 import linkedinDark from '../assets/social-linkedin-dark.svg'
 
 export const profile = {
-  username: '@seu.perfil',
+  username: '@GleissonPDias',
 }
 
 export const links = [
